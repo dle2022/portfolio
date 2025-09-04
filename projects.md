@@ -22,7 +22,7 @@ Each entry includes **context**, **architecture**, **steps**, **code/commands**,
 ---
 
 ## POS ↔ Odoo Integration {#pos-odoo}
-![POS Integration](/assets/images/pos-odoo.svg)
+![POS Integration]({{ site.baseurl }}/assets/images/pos-odoo.svg)
 
 **Context.** Sync orders/payments, reflect `modifiers` and `variations` on receipts.  
 **Architecture.** PHP/Laravel admin ↔ Square/Clover APIs ↔ Odoo.  
@@ -35,6 +35,9 @@ Each entry includes **context**, **architecture**, **steps**, **code/commands**,
 
 ---
 
+[Download my resume]({{ site.baseurl }}/assets/Duong-Le-Resume.pdf)
+---
+**Lessons.** Cardinality/label discipline; dashboards per audience.
 ## Self‑Hosted AI/RAG Stack {#rag-stack}
 ![RAG Stack](/assets/images/rag-stack.svg)
 
