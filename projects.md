@@ -5,75 +5,63 @@ title: Projects
 
 # Projects & Case Studies
 
-Each entry includes **context**, **architecture**, **steps**, **commands/config**, **observability**, and **lessons learned**.
+Welcome! This page collects a mix of infrastructure, security systems, POS/ERP integration, AI/RAG, and observability projects.  
+Each entry includes **Context**, **Architecture**, **Prereqs**, **Steps**, **Code/Config**, **Observability**, and **Lessons Learned**.
+
+> Tip: Use the table of contents to jump around. Most sections end with “Next” actions to make the work repeatable and improvable.
+
+---
+
+## Table of Contents
+
+- [VMware Lab on a Budget](#vmware-lab)
+- [Windows Server & Active Directory Modernization](#win-ad-modernization)
+- [Network Security & Infrastructure Design (Cisco)](#network-cisco)
+- [Municipal VMS Modernization (Milestone XProtect)](#milestone)
+- [Access Control Upgrade (LenelS2 OnGuard)](#lenel)
+- [Access Control Standardization (AMAG Symmetry)](#amag)
+- [Campus Video Analytics (Avigilon ACC) — Media HQ (Anonymized)](#avigilon)
+- [POS ↔ Odoo Integration (Square & Clover)](#pos-odoo)
+- [Self-Hosted AI/RAG Stack](#rag-stack)
+- [n8n + Cloudflare Zero Trust](#n8n-cloudflare)
+- [Full-Stack Observability](#observability)
+- [Cloud: AWS Landing Zone & Migration](#aws-landing-zone)
+- [Cloud: Azure Landing Zone & Hybrid AD/Intune](#azure-landing-zone)
+- [Nextcloud + Google Drive Sync (On-Prem Files to Cloud)](#nextcloud-drive)
+- [Keycloak SSO (Google Workspace, Odoo, n8n, Grafana)](#keycloak-sso)
+- [Kitchen & Counter Printing via Star CloudPRNT](#cloudprnt)
+- [Disaster Recovery Runbook & Drill](#dr-runbook)
+- [Docs & Runbooks with GitHub Pages CI/CD](#docs-cicd)
+- [Appendix: Image Placeholders](#appendix-images)
+- [KPIs & Metrics Glossary](#kpis)
+- [Changelog](#changelog)
 
 ---
 
 ## VMware Lab on a Budget {#vmware-lab}
 ![VMware Lab]({{ site.baseurl }}/assets/images/vmware-lab.svg)
 
-**Context.** Build a robust homelab that mirrors enterprise clusters: vCenter, ESXi, vSAN-style shared storage, HA/DRS.  
-**Architecture.** Nested ESXi on a single physical host; vCenter VM; shared datastore (iSCSI/NFS); VLANs & trunking; pfSense/OpnSense edge.
+**Context.** Build a robust homelab mirroring enterprise clusters: vCenter, ESXi, shared datastore, HA/DRS, backups.  
+**Architecture.** Single physical host → Nested ESXi (2–3 nodes) → vCenter → shared storage (NFS/iSCSI). Segmented VLANs: MGMT, vMotion, Storage, App.  
+**Prereqs.**
+- CPU supporting VT-x/AMD-V and EPT/RVI, 64–128 GB RAM, SSD/NVMe tier
+- Managed switch with VLAN trunking; home firewall (pfSense/OPNsense ok)
+- ISOs: ESXi, vCenter; datastore target (TrueNAS/NFS/iSCSI)
 
 **Steps.**
-1. **Enable VHV** (Virtualized Hardware) on the bare-metal hypervisor; create 2–3 nested ESXi VMs (16–32GB RAM each).
-2. **Deploy vCenter**; add ESXi; create a **Cluster**; enable **HA/DRS**, anti-affinity for infra VMs.
-3. **Shared storage:** expose an NFS/iSCSI target; create a datastore; place infra VMs and test vMotion.
-4. **Backups:** Veeam Community + application-consistent snapshots; weekly full + daily incremental.
-5. **Networking:** create Mgmt/Storage/vMotion/App VLANs; trunk to a lab switch; set jumbo frames on storage path.
+1. **Enable VHV** on bare-metal; create nested ESXi VMs (4 vCPU, 16–32 GB RAM, thin disks).
+2. **Install ESXi** on each VM; configure vmk0 management; set NTP/DNS.
+3. **Deploy vCenter**; add hosts; create **Cluster**; enable **HA/DRS**.
+4. **Shared Storage**: present NFS/iSCSI from NAS; mount datastore; test vMotion/storage vMotion.
+5. **Networking**: vSwitch0 for MGMT; vSwitch1 for vMotion; vSwitch2 for Storage (MTU 9000 if supported).
+6. **Templates**: build golden Windows/Linux templates; cloud-init for Linux; SysPrep for Windows.
+7. **Backups**: Veeam Community; weekly full + daily incremental; application-aware (SQL, AD).
+8. **Docs**: keep runbooks for vCenter restore, host replacement, and vMotion DR drills.
 
-**Commands/Config (snippets).**
-- ESXi shell: `esxcli network vswitch standard mtu set -m 9000 -v vSwitch1`  
-- vSphere CLI label host/vmk: `esxcli network ip interface set -i vmk1 -M 9000`
+**Code/Config (snippets).**
+```bash
+# ESXi: set MTU on a storage vSwitch
+esxcli network vswitch standard mtu set -m 9000 -v vSwitch_Storage
 
-**Observability.** Telegraf → Prometheus → Grafana: host CPU/RAM/disk, VM latency, datastore IOPS, packet drops.  
-**Lessons.** Nested labs surface real-world constraints (NUMA, storage latency). Keep snapshots short-lived; document vMotion/DR drills.
-
----
-
-## POS ↔ Odoo Integration (Square & Clover) {#pos-odoo}
-![POS Integration]({{ site.baseurl }}/assets/images/pos-odoo.svg)
-
-**Context.** Sync items/orders/payments and ensure **modifiers** and **variations** appear correctly on POS receipts and in Odoo.  
-**Architecture.** PHP/Laravel admin ↔ Square/Clover APIs ↔ Odoo; webhooks + scheduled sync; MySQL/PG for mapping.
-
-**Steps.**
-1. **Catalog mapping:** products ↔ variations; **modifier groups** ↔ add-ons; SKU & external IDs normalized.
-2. Implement `getModifierIdByLabel()`; **auto-create** missing modifiers; persist IDs to avoid duplicates.
-3. **Orders:** normalize line-items; attach modifiers; compute taxes/discounts; idempotent upserts into Odoo.
-4. **Receipts:** confirm POS dashboards render both **add-ons** and **variations** as intended.
-
-**Commands/Config.**
-- Laravel scheduler: `* * * * * php /var/www/artisan schedule:run`  
-- Webhook signatures: HMAC (Square) + app secrets (Clover); reject mismatches.
-
-**Observability.** Odoo logs, POS dashboards, and a small **reconciliation table** (missing IDs, price deltas).  
-**Lessons.** Treat catalog as a graph; strict **idempotency keys** for webhooks; backfill jobs for retro data.
-
----
-
-## Self-Hosted AI/RAG Stack {#rag-stack}
-![RAG Stack]({{ site.baseurl }}/assets/images/rag-stack.svg)
-
-**Context.** Ingest docs/emails and answer with retrieval; store Q&A for learning.  
-**Architecture.** Docker Compose: **Ollama**, **Qdrant**, **n8n**, **Postgres**, **Open WebUI**; simple FastAPI for `/reindex`.
-
-**Steps.**
-1. Ingest `.pdf/.docx/.txt`; chunk + embed → **Qdrant**.
-2. n8n flows trigger **summarization/classification**; optionally create Odoo CRM opportunities.
-3. `/reindex` endpoint kicks an ingest worker to refresh vectors on demand.
-
-**Commands/Config (compose excerpt).**
-```yaml
-services:
-  qdrant:
-    image: qdrant/qdrant:latest
-    volumes: [ "./qdrant:/qdrant/storage" ]
-  ollama:
-    image: ollama/ollama:latest
-    volumes: [ "ollama:/root/.ollama" ]
-  n8n:
-    image: n8nio/n8n:latest
-    environment:
-      - N8N_SECURE_COOKIE=true
-      - N8N_ENCRYPTION_KEY=${N8N_KEY}
+# ESXi: label vmk for vMotion
+esxcli network ip interface tag add -i vmk1 -t VMotion
