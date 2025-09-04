@@ -38,30 +38,59 @@ I'm a systems engineer focused on VMware, AD/Windows Server, networking, and aut
 <div class="section-card home-grid">
   <div>
     <h4>Platforms & Infra</h4>
-    <p>vSphere/ESXi/vSAN, Horizon/VDI, Windows Server/AD, Ubuntu</p>
+    <p>vCenter/vSphere/ESXi/vSAN • HA/DRS • Backup/Restore (Veeam/Runbooks) • Horizon/VDI • Ubuntu/Windows Server</p>
   </div>
+
   <div>
-    <h4>Networking & Security</h4>
-    <p>Cisco (CCNA), VLAN/VRF, ASA/FTD, IPsec/SSL VPN, 802.1X/NAC, DMZ</p>
+    <h4>Windows Server & AD</h4>
+    <p>AD DS • DNS/DHCP • GPO baselines • Intune/Autopilot • PKI (certs) • Secure hardening • OU design & delegation</p>
   </div>
+
   <div>
-    <h4>Security Systems</h4>
-    <p>Milestone XProtect, AMAG Symmetry, LenelS2 OnGuard, Avigilon ACC</p>
+    <h4>Security Systems (VMS & ACS)</h4>
+    <p><strong>Milestone XProtect</strong>, <strong>AMAG Symmetry</strong>, <strong>LenelS2 OnGuard</strong>, <strong>Avigilon ACC</strong></p>
+    <p>Camera onboarding (RTSP/ONVIF), retention & NVR sizing, failover/archiving • Door groups, badging, schedules • AD/LDAP/SSO & audit trails</p>
   </div>
+
+  <div>
+    <h4>Network Infrastructure Design</h4>
+    <p>Core/Distribution/Access topology • VLAN/VRF segmentation • DMZ & micro-segmentation • IPAM • Dual/HA WAN • Site-to-site VPN</p>
+  </div>
+
+  <div>
+    <h4>Campus & Enterprise Networking</h4>
+    <p><strong>Cisco</strong> (Catalyst/IOS-XE, ASA/FTD, ISE) • <strong>Extreme</strong> (EXOS) • OSPF/BGP • QoS for UC • 802.1X/NAC with MAB fallback</p>
+  </div>
+
+  <div>
+    <h4>Cloud (AWS & Azure)</h4>
+    <p>AWS Organizations/Landing Zone • VPCs, IAM, GuardDuty, CloudTrail • Azure Mgmt Groups/Policy • Hub-Spoke VNets, Bastion/Firewall</p>
+  </div>
+
+  <div>
+    <h4>Identity & SSO</h4>
+    <p>Keycloak • Okta • Entra ID (Azure AD) • OIDC/SAML • MFA/Conditional Access • Role/Group mapping • SCIM/Just-In-Time provisioning</p>
+  </div>
+
+  <div>
+    <h4>Odoo ERP (On-prem & POS)</h4>
+    <p>Ubuntu + Postgres + Nginx reverse proxy • Workers/tuning • Module install & upgrades • POS integration (Square/Clover), webhooks/REST</p>
+    <p>Backups/restore, staging → prod workflow, receipt mapping (modifiers/variations)</p>
+  </div>
+
   <div>
     <h4>Data & Automation</h4>
-    <p>Docker, GitHub Actions, PowerShell/Bash, REST/Webhooks, n8n</p>
+    <p>Docker/Compose • GitHub Actions CI • PowerShell/Bash • REST/Webhooks • n8n workflows • Infra docs & runbooks</p>
   </div>
-  <div>
-    <h4>Business Systems</h4>
-    <p>Odoo ERP, POS (Square/Clover), inventory & receipts</p>
-  </div>
+
   <div>
     <h4>AI/RAG</h4>
-    <p>Ollama, Qdrant, retrieval pipelines, Open WebUI</p>
+    <p>Ollama • Qdrant • Retrieval pipelines • Open WebUI • PDF/DOCX ingest • Q&A logging, feedback loops</p>
   </div>
 </div>
+
 <p><a class="btn" href="{{ '/skills' | relative_url }}">See detailed skills</a></p>
+
 
 ### Highlights
 - **VMware vCenter/ESXi/vSAN** • HA/DRS • Backup/Restore (Veeam/Runbooks) • Template/Golden Image mgmt • Patch/Lifecycle
