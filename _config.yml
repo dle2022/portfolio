@@ -1,13 +1,32 @@
-# _config.yml
-title: "Duong Le — Systems Engineer"
-description: "VMware/vSphere, Windows Serverws, Security Systems, Network Security, Cloud AWS, Azure, Windows/AD, Networking (CCNA), Odoo + POS, AI/RAG, Observability"
-url: "https://dle2022.github.io/portfolio"
+---
+layout: nil
+---
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet"
+          href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  </head>
 
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-  - jekyll-remote-theme   # required for remote themes
-  - jekyll-seo-tag        # metadata for search/social
-  - jekyll-sitemap        # /sitemap.xml
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">{{ site.title }}</h1>
+      <h2 class="project-tagline">{{ site.description }}</h2>
 
-# Optional: Google Analytics
-# google_analytics: G-XXXXXXXXXX
+      <nav class="nav">
+        {% for item in site.data.nav %}
+          <a class="btn" href="{{ item.url | relative_url }}">{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+    </section>
+
+    <section class="main-content">
+      {{ content }}
+      {% include footer.html %}
+    </section>
+  </body>
+</html>
