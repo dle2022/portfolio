@@ -1,0 +1,27 @@
+---
+layout: nil
+---
+<!DOCTYPE html>
+<html lang="en-us">
+  {% include head.html %}
+  <head>
+    {% seo %} <!-- from jekyll-seo-tag -->
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">{{ site.title }}</h1>
+      <h2 class="project-tagline">{{ site.description }}</h2>
+
+      <nav class="nav">
+        {% for item in site.data.nav %}
+          <a class="btn" href="{{ item.url | relative_url }}">{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+    </section>
+
+    <section class="main-content">
+      {{ content }}
+      {% include footer.html %}
+    </section>
+  </body>
+</html>
