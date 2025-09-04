@@ -6,7 +6,6 @@ title: Contact
 # Contact
 
 - Email: <lengocduong18@gmail.com>  
-- LinkedIn: _add link_  
-- GitHub: _your username_
-
+- LinkedIn: https://www.linkedin.com/in/dle90  
+- GitHub: https://dle2022.github.io/portfolio
 > Tip: For inquiries, mention the project name and timeline. I'm US‑based (PST).
