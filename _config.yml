@@ -3,4 +3,4 @@ description: "vSphere/ESXi, Windows/AD, Networking (CCNA), Odoo+POS integrations
 remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
-# Optional: add a Google Analytics or Plausible script in _includes if desired.
+baseurl: "/portfolio"   # <-- add this
