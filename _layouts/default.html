@@ -2,10 +2,13 @@
 layout: nil
 ---
 <!DOCTYPE html>
-<html lang="en-us">
-  {% include head.html %}
+<html lang="{{ site.lang | default: 'en-US' }}">
   <head>
-    {% seo %} <!-- from jekyll-seo-tag -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
     <section class="page-header">
@@ -21,7 +24,9 @@ layout: nil
 
     <section class="main-content">
       {{ content }}
-      {% include footer.html %}
+      <footer style="margin-top:2rem;font-size:.9rem;opacity:.8">
+        <p>© {{ 'now' | date: '%Y' }} {{ site.title }}</p>
+      </footer>
     </section>
   </body>
 </html>
