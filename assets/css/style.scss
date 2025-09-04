@@ -25,3 +25,18 @@
   border-radius: 10px;
   padding: .75rem .9rem;
 }
+/* Buttons inside page content */
+.main-content .btn {
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 9999px;
+  padding: .45rem .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.1;
+}
+.main-content .btn + .btn { margin-left: .5rem; }
+.main-content .btn:hover, .main-content .btn:focus {
+  text-decoration: none;
+  filter: brightness(.96);
+}
