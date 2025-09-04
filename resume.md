@@ -3,13 +3,27 @@ layout: default
 title: Resume
 ---
 
-# Resume
+## Summary
+Versatile IT Systems Engineer (5+ years) across VMware/vSphere, Windows/AD, secure networking (CCNA), Odoo + POS integrations (Square/Clover), and AI/RAG automation. Strong in HA/DRS design, backup/restore, Git-driven config, and observability.
 
-**Summary.** Systems Engineer (VMware, Windows/AD, Networking, Cloud) with strong integration work across Odoo/Square/Clover and self‑hosted AI/RAG. US Navy leadership; budget management; mentoring.
+## Core Skills
+- VMware vCenter/ESXi/vSAN; HA/DRS; backup/restore; Horizon/VDI
+- Windows Server/AD DS; DNS/DHCP; Group Policy; Intune; PowerShell
+- Networking: VLANs, VPNs, routing/firewalls; Cisco (CCNA)
+- Odoo ERP + POS (Square/Clover) integrations; REST & webhooks
+- Containers & CI: Docker, GitHub Actions; Infra docs
+- Observability: Zabbix, Checkmk, Grafana
+- AI/RAG: Ollama, Qdrant, n8n, Open WebUI
 
-- **Core:** VMware vCenter, ESXi, vSAN, HA/DRS • Windows Server/AD • Cisco/CCNA • AWS • Docker • GitHub Actions • Grafana/Prometheus
-- **Integrations:** POS (Square/Clover) ↔ Odoo ERP • APIs/webhooks • PHP/Laravel • Node/Python
-- **AI/RAG:** Ollama • Qdrant • n8n • Open WebUI
+## Experience
+**Systems Engineer** — 2019–2025  
+- Built VMware labs and small-scale clusters with HA/DRS and backup/restore
+- Migrated/managed Windows Server/AD, GPO, DNS/DHCP; scripted with PowerShell
+- Designed network segments (VLANs) and site VPNs; hardened firewall rules
+- Integrated Odoo with Square/Clover: items, modifiers/variations, receipts
+- Built RAG stack (Ollama + Qdrant + n8n) for internal knowledge search
+- Implemented observability: Zabbix/Checkmk dashboards, Grafana views
 
-📄 _Add your PDF resume here_ → Place `Duong-Le-Resume.pdf` in `/assets/` and link:  
-`[Download my resume]({{ site.baseurl }}/assets/Duong-Le-Resume.pdf)`
+## Education & Certifications
+- Master’s + Bachelor’s in IT-related fields; AWS & MCSA (selected)
+- Cisco CCNA; VMware-aligned skills; ongoing certs
