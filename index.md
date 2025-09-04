@@ -16,7 +16,7 @@ I'm a systems engineer focused on VMware, AD/Windows Server, networking, and aut
 <div class="section-card">
 <p>I’m open to Systems/Infrastructure roles and integration projects (VMware, Windows/AD, Security Systems, Cisco networking, Odoo+POS, AI/RAG).</p>
 <p>
-  <a class="btn" href="{{ '/coffee' | lhttps://calendly.com/lengocduong18/30min }}">☕ Book a Coffee Chat</a>
+  <a class="btn" href="{{ '/coffee' | https://calendly.com/lengocduong18/30min }}">☕ Book a Coffee Chat</a>
   <a class="btn" href="mailto:lengocduong18@gmail.com">Email Me</a>
   <a class="btn" href="https://github.com/dle2022" target="_blank" rel="noopener">GitHub</a>
   <a class="btn" href="https://www.linkedin.com/in/duong-le-0342331a6/" target="_blank" rel="noopener">LinkedIn</a>
