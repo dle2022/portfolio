@@ -12,4 +12,4 @@ title: Resume
 - **AI/RAG:** Ollama • Qdrant • n8n • Open WebUI
 
 📄 _Add your PDF resume here_ → Place `Duong-Le-Resume.pdf` in `/assets/` and link:  
-`[Download my resume](/assets/Duong-Le-Resume.pdf)`
+`[Download my resume]({{ site.baseurl }}/assets/Duong-Le-Resume.pdf)`
