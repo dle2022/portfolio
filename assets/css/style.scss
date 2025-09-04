@@ -1,0 +1,14 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* subtle upgrades */
+.page-header { padding-bottom: 1.25rem; }
+.nav { margin-top: .75rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+.btn { border-radius: 9999px; padding: .45rem .9rem; font-weight: 600; }
+.main-content img { border-radius: 8px; }
+.section-card {
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0;
+}
