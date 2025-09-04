@@ -1,0 +1,15 @@
+# _data/nav.yml
+- label: Home
+  url: /
+- label: Projects
+  url: /projects
+- label: Resume
+  url: /resume
+- label: Skills
+  url: /skills
+- label: Certifications
+  url: /certifications
+- label: Coffee Chat
+  url: /coffee
+- label: Contact
+  url: /contact
