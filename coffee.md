@@ -3,7 +3,7 @@ layout: default
 title: Coffee Chat
 ---
 
-Prefer a quick 15-min chat? Pick a time below.
+Prefer a quick 30-min chat? Pick a time below.
 
 <div class="section-card">
   <!-- Replace the URL if you prefer Cal.com -->
