@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360">
+  <rect x="10" y="10" width="700" height="340" fill="white" stroke="black" stroke-width="3"/>
+  <text x="50%" y="40%" dominant-baseline="middle" text-anchor="middle" font-size="28" font-family="Arial">VMware Lab</text>
+  <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-size="18" font-family="Arial">Nested ESXi • vCenter • vSAN • HA/DRS</text>
+</svg>
