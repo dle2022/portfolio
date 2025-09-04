@@ -1,14 +1,27 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+/* Import the theme base styles first */
+@import "jekyll-theme-cayman";
 
-/* subtle upgrades */
+/* Subtle upgrades */
 .page-header { padding-bottom: 1.25rem; }
 .nav { margin-top: .75rem; display: flex; gap: .5rem; flex-wrap: wrap; }
 .btn { border-radius: 9999px; padding: .45rem .9rem; font-weight: 600; }
 .main-content img { border-radius: 8px; }
+
+/* Card + grid utilities used on the home page */
 .section-card {
   border: 1px solid rgba(0,0,0,.06);
   border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0;
+}
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: .75rem;
+}
+.home-grid > div {
+  background: rgba(0,0,0,.03);
+  border-radius: 10px;
+  padding: .75rem .9rem;
 }
