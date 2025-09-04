@@ -7,9 +7,9 @@ title: Home
 
 I'm a systems engineer focused on VMware, AD/Windows Server, networking, and automation. I also build end‑to‑end business systems that connect POS (Square, Clover), Odoo ERP, and AI/RAG automation.
 
-**Quick Links** → [Projects](/projects) • [Resume](/resume) • [Contact](/contact)
+**Quick Links** → [Projects]({{ site.baseurl }}/projects) • [Resume]({{ site.baseurl }}/resume) • [Contact]({{ site.baseurl }}/contact)
+![VMware Lab Diagram]({{ site.baseurl }}/assets/images/vmware-lab.svg)
 
-![VMware Lab Diagram](/assets/images/vmware-lab.svg)
 
 ## Highlights
 - VMware vCenter/ESXi/vSAN • HA/DRS • Backup/Restore
